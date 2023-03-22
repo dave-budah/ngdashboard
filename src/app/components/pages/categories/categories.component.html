@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-md-6">
+    <!-- Table -->
+    <div class="card-table">
+      <div class="card-table-header d-flex justify-content-between align-items-center">
+        <h5>{{ formStatus }} Category</h5>
+      </div>
+
+      <form class="py-4 px-2" #categoryForm = 'ngForm' (ngSubmit)="onSubmit(categoryForm)">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" class="form-control" name="category" [(ngModel)]="categoryEdit" #categoryName = 'ngModel' required [ngClass]=" {'is-invalid': categoryName.touched && categoryName.invalid}">
+              <label class="input-label">Name</label>
+              <small class="error-msg" *ngIf="categoryName.touched && categoryName.invalid">Category name can't be empty</small>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group mb-1">
+              <input type="text" class="form-control" name="status">
+              <label class="input-label">Status</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-btn">
+          <button class="submitBtn btn px-4" [disabled]="categoryName.invalid">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card-table">
+      <div class="card-table-header d-flex justify-content-between align-items-center">
+        <h5>Categories</h5>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-sm">
+          <thead>
+          <tr>
+            <th scope="col">
+              #
+            </th>
+            <th scope="col">Name</th>
+            <th scope="col">Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let category of categoryArray; let i = index">
+            <td>{{ i+1 }}</td>
+            <td>{{ category.data.category }}</td>
+            <td>
+              <a (click)="onDelete(category.id)" class="mx-2" title="Delete">
+                <i class="bi bi-trash"></i>
+              </a>
+              <a (click)="onEdit(category.data.category, category.id)" class="mx-2" title="edit">
+                <i class="bi bi-pen"></i>
+              </a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+

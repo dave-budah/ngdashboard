@@ -1,0 +1,98 @@
+<lib-ng-toast></lib-ng-toast>
+<div class="load-wrapper" *ngIf="loader.isLoading | async">
+  <span class="bar"></span>
+  <span class="bar"></span>
+  <span class="bar"></span>
+</div>
+
+<div class="wrapper">
+  <div id="menu" class="menu sidebar">
+    <div class="actionbar">
+      <button id="menuBtn">
+        <i class="bi bi-list"></i>
+      </button>
+      <h4 class="menuText">Dashboard</h4>
+    </div>
+    <div class="menuBreak">
+      <hr>
+    </div>
+    <ul class="optionBar">
+      <li>
+        <a routerLink="/dashboard" class="menuOption">
+          <i class="bi bi-graph-up"></i> <h5>Analytics</h5>
+        </a>
+      </li>
+      <li class="menuItem">
+        <a routerLink="/blog" class="menuOption">
+          <i class="bi bi-chat-left-dots"></i> <h5 class="menuText">Blog</h5>
+        </a>
+      </li>
+      <li class="menuItem">
+        <a routerLink="/users" class="menuOption">
+          <i class="bi bi-people"></i> <h5 class="menuText">Users</h5>
+          </a>
+      </li>
+      <li class="menuItem">
+        <a routerLink="/comments" class="menuOption">
+          <i class="bi bi-chat"></i> <h5 class="menuText">Comments</h5>
+          </a>
+      </li>
+      <li class="menuItem">
+        <a routerLink="/categories" class="menuOption">
+          <i class="bi bi-columns-gap"></i> <h5 class="menuText">Categories</h5>
+          </a>
+      </li>
+      <li class="menuItem">
+        <a class="menuOption">
+          <i class="bi bi-person-circle"></i> <h5 class="menuText">Profile</h5>
+          </a>
+      </li>
+    </ul>
+    <div>
+      <a class="subtitle menuText">ACCOUNT PAGES</a>
+    </div>
+    <ul class="optionBar optionBarr">
+      <li class="menuItem">
+        <a class="menuOption">
+          <i class="bi bi-person"></i> <h5 class="menuText">Profile</h5>
+          </a>
+      </li>
+      <li class="menuItem">
+        <a class="menuOption">
+          <i class="bi bi-box-arrow-right"></i> <h5 class="menuText">Logout</h5>
+          </a>
+      </li>
+    </ul>
+  </div>
+  <!-- Pages -->
+  <div class="pages">
+    <nav class="navbar navbar-expand-lg bg-transparent">
+      <div class="container-fluid">
+        <a class="nav-link"><b>Pages</b> / Dashboard</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="bi bi-list"></i>
+        </button>
+<!--        Navbar -->
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ms-auto">
+            <form class="d-flex" role="search">
+              <input class="form-control me-2 bg-transparent" type="search" placeholder="Search" aria-label="Search">
+            </form>
+            <a class="nav-link" href="#">
+              <i class="bi bi-bell"></i>
+            </a>
+            <a class="nav-link" href="#">
+             {{ userEmail }}
+            </a>
+            <a class="nav-link logout-btn" title="Logout" (click)="onLogout()">
+              <i class="bi bi-box-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <router-outlet></router-outlet>
+
+  </div>
+</div>

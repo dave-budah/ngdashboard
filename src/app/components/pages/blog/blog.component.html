@@ -1,0 +1,49 @@
+<!-- Table -->
+<div class="card-table">
+  <div class="card-table-header d-flex justify-content-between align-items-center">
+    <h5>Blog posts</h5>
+    <button class="btn px-4" routerLink="/create-blog">Create</button>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-sm">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Thumbnail</th>
+        <th scope="col">Title</th>
+        <th scope="col">Excerpt</th>
+        <th scope="col">Category</th>
+        <th scope="col">Status</th>
+        <th scope="col">Created On</th>
+        <th scope="col">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let post of postArray; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td class="author">
+          <img src="{{ post.data.postImgPath }}" alt="">
+        </td>
+        <td>{{ (post.data.title.length>30)? (post.data.title | slice:0:28)+'...':(post.data.title) }}</td>
+        <td>{{ (post.data.excerpt.length>30)? (post.data.excerpt | slice:0:28)+'...':(post.data.excerpt) }}</td>
+        <td>{{ post.data.category.category }}</td>
+        <td class="status">
+          <span *ngIf="post.data.isFeatured" class="featured btn me-1" (click)="onFeatured(post.id, false)">Featured</span>
+          <span *ngIf="!post.data.isFeatured" class="not-featured btn" (click)="onFeatured(post.id, true)">Not Featured</span>
+        </td>
+        <td class="date">{{ post.data.createdOn.toMillis() | date }}</td>
+        <td>
+          <a class="mx-2" (click)="onDelete(post.data.postImgPath, post.id)">
+            <i class="bi bi-trash"></i>
+          </a>
+          <a routerLink="/create-blog" [queryParams]="{id: post.id}" class="mx-2">
+            <i class="bi bi-pen"></i>
+          </a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- Another table -->
+

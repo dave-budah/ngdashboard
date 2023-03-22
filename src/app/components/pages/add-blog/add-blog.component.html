@@ -1,0 +1,81 @@
+<div class="col-md-10 mx-auto">
+  <!-- Table -->
+  <div class="card-table">
+    <div class="card-table-header d-flex justify-content-between align-items-center">
+      <h5>{{ formStatus }} Post</h5>
+      <button class="btn px-4" routerLink="/blog">Cancel</button>
+    </div>
+    <div *ngIf="postForm">
+      <form class="py-4 px-2" [formGroup]="postForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" class="form-control" [ngClass]="{'is-invalid': submitted && fc['title'].touched && fc['title'].invalid}" formControlName="title" (keyup)="onTitleChange({$event : $event})">
+              <label class="input-label">Title</label>
+              <!--            <small class="errorMsg w-100" *ngIf="submitted && fc['title']?.errors['required']">-->
+              <!--              <small class="errorMsg w-100" *ngIf="fc['title']?.touched && fc['title']?.invalid">Title is required</small>-->
+              <!--            </small>-->
+              <!--            <small class="errorMsg w-100" *ngIf="submitted && fc['title']?.errors['minlength']">-->
+              <!--              <small class="errorMsg w-100" *ngIf="fc['title']?.touched && fc['title']?.invalid">Title should be at least 6 characters long</small>-->
+              <!--            </small>-->
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" class="form-control" formControlName="permalink" [(ngModel)] = 'permalink' readonly>
+              <label class="input-label">Permalink</label>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <select class="form-control" formControlName="category" [ngClass]="{'is-invalid': submitted && fc['category'].touched && fc['category'].invalid}">
+                <option value="" selected>--Select category--</option>
+                <option value="{{ category.id }}-{{ category.data.category }}" *ngFor="let category of categories">{{ category.data.category }}</option>
+              </select>
+              <label class="input-label">Category</label>
+              <!--            <small class="errorMsg w-100" *ngIf="submitted && fc['category'].errors['required']">-->
+              <!--              <small class="errorMsg w-100" *ngIf="fc['category'].touched && fc['category'].invalid">Category is required</small>-->
+              <!--            </small>-->
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" class="form-control" formControlName="excerpt" [ngClass]="{'is-invalid':submitted && fc['excerpt'].touched && fc['excerpt'].invalid}">
+              <label class="input-label">Excerpt</label>
+              <!--            <small class="errorMsg w-100" *ngIf="submitted && fc['excerpt'].errors['required']">-->
+              <!--              <small class="errorMsg w-100" *ngIf="fc['excerpt'].touched && fc['excerpt'].invalid">Excerpt is required</small>-->
+              <!--            </small>-->
+              <!--            <small class="errorMsg w-100" *ngIf="submitted && fc['excerpt'].errors['minlength']">-->
+              <!--              <small class="errorMsg w-100" *ngIf="fc['excerpt'].touched && fc['excerpt'].invalid">Excerpt should be at least 6 characters long</small>-->
+              <!--            </small>-->
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <input class="form-control" type="file" formControlName="thumbnail" accept="image/*" (change)="previewImg($event)" [ngClass]="{'is-invalid':fc['thumbnail'].touched && fc['thumbnail'].invalid}">
+            <!--          <small class="errorMsg w-100" *ngIf="submitted && fc['thumbnail'].errors['required']">-->
+            <!--            <small class="errorMsg w-100" *ngIf="fc['thumbnail'].touched && fc['thumbnail'].invalid">Image is required</small>-->
+            <!--          </small>-->
+          </div>
+          <div class="col-md-6">
+            <img [src]="imgSrc" alt="" class="form-control img-fluid img-preview">
+          </div>
+        </div>
+        <div class="form-group mt-4">
+          <angular-editor formControlName="content" placeholder="Add content here"></angular-editor>
+          <!--        <small class="errorMsg w-100" *ngIf="submitted && fc['content'].errors['required']">-->
+          <!--          <small class="errorMsg w-100" *ngIf="fc['content'].touched && fc['content'].invalid">Content is required</small>-->
+          <!--        </small>-->
+        </div>
+        <div class="form-btn">
+          <button class="submitBtn btn px-4" [disabled]="postForm.invalid">Submit</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>

@@ -1,1 +1,399 @@
-/* You can add global styles to this file, and also import other style files */
+a {
+  text-decoration: none !important;
+}
+ul {
+  list-style: none;
+}
+html {
+  font-family: 'Roboto', sans-serif;
+}
+.auth-wrapper {
+  height: 100svh;
+}
+a,h1,h2,h3,h4,h5,h6,span,th,td,li {
+  font-family: 'Roboto', sans-serif;
+}
+:root {
+  --background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(6,6,52,1) 35%, rgba(41,73,79,1) 100%);
+  --box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  --primary-color: rgba(2,0,36,1);
+  --secondary-color: rgba(41,73,79,1);
+
+  --border-radius-lg: 10px;
+  --border-radius-sm: 4px;
+  --default-font-size: 16px;
+  --medium-font-size: 14px;
+  --sm-font-size: 12px;
+}
+body {
+  font-size: var(--default-font-size);
+}
+.btn,
+.submitBtn {
+  outline-color: transparent;
+  background-image: linear-gradient(to right, #667eea, #09154a, #6B8DD6, #09154a);
+  box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+  background-size: 300% 100%;
+  color: #fff !important;
+
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+.img-preview {
+  max-height: 300px;
+  width: 100%;
+}
+.btn:hover,
+.button:hover {
+  background-position: 100% 0;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+select,
+input {
+  outline-color: transparent;
+  box-shadow: none !important;
+}
+hr {
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, rgba(102, 91, 91, 0), rgba(241, 239, 239, 0.75), rgba(102, 91, 91, 0));
+}
+.wrapper {
+  background: #f0f0fd;
+  height: 100svh;
+  width: 100svw;
+  padding: 20px;
+  display: flex;
+  gap: 10px;
+  position: fixed;
+}
+.sidebar {
+  background-image: linear-gradient(to bottom, #051937, #041635, #041233, #040d30, #05072e);
+  width: 60px;
+  box-shadow: var(--box-shadow);
+  height: 96svh;
+  border-radius: var(--border-radius-lg);
+  padding: 10px;
+  transition: .3s ease-in-out;
+}
+.sidebar.open {
+  width: 250px;
+}
+.actionbar {
+  display: flex;
+  column-gap: 20px;
+  color: #f0f0fd;
+  margin-top: 20px;
+  padding: 0 6px;
+}
+.actionbar .menuText {
+  text-transform: uppercase;
+  font-weight: 600;
+  padding-top: 7px;
+}
+.actionbar button#menuBtn {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  color: #f0f0fd;
+  font-size: 20px;
+  outline-color: transparent;
+  border-radius: var(--border-radius-sm);
+}
+.sidebar.open .actionbar button#menuBtn {
+  margin-left: 5px;
+  padding: 0 0 10px 0;
+}
+.actionbar button#menuBtn:hover {
+  color: rgba(2,0,36,1);
+}
+.optionBar {
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
+}
+.optionBar li {
+  margin: 20px 0;
+  cursor: pointer;
+  transition: all 1s ease-out;
+  padding: 4px 2px;
+  border-radius: var(--border-radius-sm);
+}
+.optionBar li:hover {
+  background-image: var(--background-image);
+}
+.optionBar li a {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+  text-decoration: none;
+  color: #f0f0fd;
+  padding: 12px 4px 4px;
+}
+.optionBar li a h5 {
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.sidebar .optionBar li a i {
+  margin-left: 8px;
+  margin-top: -5px;
+}
+.sidebar.open .optionBar li a i {
+  margin-top: -10px;
+}
+.menuText,
+.subtitle {
+  transform: translateX(-250px);
+  opacity: 0;
+  transition: transform .3s ease .1s;
+}
+.menuText.open,
+.subtitle.open {
+  opacity: 1;
+  transform: translateX(0);
+}
+.subtitle {
+  font-weight: 600;
+  text-decoration: none;
+  color: #f0f0fd;
+  transition: transform .3s ease .1s;
+  margin-left: 10px;
+  white-space: nowrap;
+}
+
+.wrapper .pages {
+  height: 100vh;
+  width: 100%;
+  overflow-y: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;
+}
+.wrapper .pages::-webkit-scrollbar {
+  display: none;
+}
+.wrapper .pages nav .nav-link {
+  color: hsl(230, 13%, 54%);
+}
+.logout-btn {
+  font-size: 22px;
+  color: var(--secondary-color);
+  cursor: pointer;
+  margin-top: -7px;
+}
+.logout-btn i {
+  font-size: 26px;
+}
+.card-table {
+  position: relative;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--box-shadow);
+  padding: 60px 0 20px 0;
+  background: #fff;
+  margin: 5rem 0;
+}
+.card-table .card-table-header {
+  position: absolute;
+  width: 98%;
+  background-image: var(--background-image);
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px;
+  border-radius: var(--border-radius-sm);
+  color: #fff;
+}
+.card-table table,
+.card-table table a {
+  color: hsl(230, 13%, 54%);
+}
+.card-table th {
+  font-size: var(--sm-font-size);
+  text-transform: uppercase;
+}
+.card-table td.date {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.card-table td {
+  font-size: var(--medium-font-size);
+  vertical-align: middle;
+}
+.card-table table a {
+  text-decoration: none;
+}
+td.author img {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--border-radius-sm);
+}
+td.author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+td.author h6 {
+  margin: 0;
+  padding: 0;
+  font-size: var(--sm-font-size);
+  font-weight: 800;
+}
+
+.featured {
+  background: rgb(15, 15, 95) !important;
+  color: var(--primary-color);
+}
+.pending {
+  background: green;
+  color: var(--primary-color);
+}
+.not-featured {
+  background: red !important;
+}
+td.status span {
+  padding: 4px 15px;
+  border-radius: var(--border-radius-sm);
+  font-size: var(--sm-font-size);
+  font-weight: 300;
+  text-transform: uppercase;
+}
+a i.bi-pen:hover {
+  color:  rgb(15, 15, 95);
+}
+a i.bi-trash:hover {
+  color: red;
+}
+/* Analytics card */
+.analytics-card{
+  position: relative;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--box-shadow);
+  padding: 10px;
+  background: #fff;
+  margin-top: 4rem;
+  color: hsl(230, 13%, 54%);
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
+}
+.analytics-card h6 {
+  font-weight: 800;
+  font-size: 18px;
+}
+.analytics-card .floating-card {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-content: center;
+  background-image: var(--background-image);
+  top: -20px;
+  left: 20px;
+  padding: 5px;
+  border-radius: var(--border-radius-sm);
+  color: #fff;
+}
+/* Analytics card */
+form#authForm {
+  border: 1px solid var(--primary-color);
+  border-radius: var(--border-radius-lg);
+  padding: 100px 10px 30px 10px;
+  width: 100%;
+  max-width: 340px;
+  position: relative;
+}
+
+form .form-header {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--background-image);
+  width: 96%;
+  border-radius: 4px;
+  top: -20px;
+  padding: 10px 5px;
+  text-align: center;
+  color: #fff;
+}
+form .form-group {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+form .error-msg {
+  font-size: var(--sm-font-size);
+  position: absolute;
+  bottom: -16px;
+  color: darkred;
+  left: 6px;
+}
+form .errorMsg {
+  bottom: -10px !important;
+  font-size: var(--sm-font-size);
+  position: absolute;
+  color: darkred;
+  left: 6px;
+}
+form .input-label {
+  position: absolute;
+  top: -14px;
+  left: 8px;
+  z-index: 5;
+  font-size: var(--sm-font-size);
+  background: #fff;
+  padding: 2px 4px;
+}
+.hint {
+  font-size: var(--medium-font-size);
+  color: #3d3d3d;
+}
+form#authForm a {
+  color: var(--primary-color);
+}
+form#authForm p {
+  color: var(--secondary-color);
+}
+.load-wrapper {
+  position: fixed;
+  height: 100svh;
+  width: 100svw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, .4);
+  backdrop-filter: blur(2px);
+  z-index: 99;
+}
+.load-wrapper .bar {
+  display: inline-block;
+  width: 3px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, .5);
+  border-radius: 10px;
+  animation: scale-up4 1s linear infinite;
+}
+
+.load-wrapper .bar:nth-child(2) {
+  height: 35px;
+  margin: 0 5px;
+  animation-delay: .25s;
+}
+
+.load-wrapper .bar:nth-child(3) {
+  animation-delay: .5s;
+}
+
+@keyframes scale-up4 {
+  20% {
+    background-color: #ffff;
+    transform: scaleY(1.5);
+  }
+
+  40% {
+    transform: scaleY(1);
+  }
+}
